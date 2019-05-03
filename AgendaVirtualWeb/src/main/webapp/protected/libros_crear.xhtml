@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<h:head></h:head>
+<body>
+<ui:composition template="/WEB-INF/templates/principal.xhtml">
+	<ui:define name="primaryTitle">Crear libro</ui:define>
+	<ui:define name="content">
+          <div class="container">
+          <h:form>
+          		<p:messages id="mensajeRespuesta" showDetail="true" closable="true">
+			        <p:autoUpdate />
+			    </p:messages>
+				<div class="form-group row">
+	                <p:outputLabel for="editorial" value="Editorial" class="col-sm-2 col-form-label"></p:outputLabel>
+	                <div class="col-sm-10">
+	                	<p:selectOneMenu id="editorial" style="width:160px" value="#{libroController.editorial}" converter="omnifaces.SelectItemsConverter">
+	                		<f:selectItem itemLabel="seleccionar" itemValue="" />
+							<f:selectItems value="#{libroController.editoriales}" var="editorial" itemLabel="#{editorial.nombre}" itemValue="#{editorial}" />
+						</p:selectOneMenu>
+	                	<p:message for="editorial" display="text" />
+	                </div>
+				</div>
+				<div class="form-group row">
+	                <p:outputLabel for="genero" value="Genero" class="col-sm-2 col-form-label"></p:outputLabel>
+	                <div class="col-sm-10">
+	                	<p:selectOneMenu id="genero" value="#{libroController.genero}" style="width:160px" converter="omnifaces.SelectItemsConverter">
+	                		<f:selectItem itemLabel="seleccionar" itemValue="" />
+							<f:selectItems value="#{libroController.generos}" converter="themeConverter" var="genero" itemLabel="#{genero.nombre}" itemValue="#{genero}" />
+						</p:selectOneMenu>
+	                	<p:message for="genero" display="text" />
+	                </div>
+				</div>
+				<div class="form-group row">
+	                <p:outputLabel for="titulo" value="Titulo" class="col-sm-2 col-form-label"></p:outputLabel>
+	                <div class="col-sm-10">
+	                	<p:inputText id="titulo" class="form-control" value="#{libroController.libro.titulo}" required="true" placeholder="Ingresar titulo"></p:inputText>
+	                	<p:message for="titulo" display="text" />
+	                </div>
+				</div>			
+				<div class="form-group row">
+	                <p:outputLabel for="precio" value="Precio" class="col-sm-2 col-form-label"></p:outputLabel>
+	                <div class="col-sm-10">
+	                	<p:inputText id="precio" class="form-control" value="#{libroController.libro.precio}" required="true" placeholder="Ingresar precio"></p:inputText>
+	                	<p:message for="precio" display="text" />
+	                </div>
+				</div>
+				<div class="form-group row">
+	                <p:outputLabel for="isbn" value="ISBN" class="col-sm-2 col-form-label"></p:outputLabel>
+	                <div class="col-sm-10">
+	                	<p:inputText id="isbn" class="form-control" value="#{libroController.libro.isbn}" required="true" placeholder="Ingresar isbn"></p:inputText>
+	                	<p:message for="isbn" display="text" />
+	                </div>
+				</div>
+				<div class="form-group row">
+	                <p:outputLabel for="sinopsis" value="Sinopsis" class="col-sm-2 col-form-label"></p:outputLabel>
+	                <div class="col-sm-10">
+	                	<p:inputTextarea id="sinopsis" class="form-control" value="#{libroController.libro.sinopsis}" required="true" placeholder="Ingresar sinopsis"></p:inputTextarea>
+	                	<p:message for="sinopsis" display="text" />
+	                </div>
+				</div>	
+				<div class="form-group row">
+					<p:outputLabel class="col-sm-2 col-form-label"></p:outputLabel>
+	                <div class="col-sm-10">
+	                  <p:commandButton update="mensajeRespuesta" class="btn btn-primary" value="Guardar" action="#{libroController.guardar()}"></p:commandButton>
+	                </div>
+	            </div>
+			</h:form>
+          </div>
+	</ui:define>
+</ui:composition>
+</body>
+</html>

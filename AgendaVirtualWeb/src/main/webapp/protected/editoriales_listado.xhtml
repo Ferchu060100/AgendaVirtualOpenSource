@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head></h:head>
+<body>
+	<ui:composition template="/WEB-INF/templates/principal.xhtml">
+		<ui:define name="primaryTitle">Listado de editoriales</ui:define>
+		<ui:define name="content">
+			<h:form id="frm">
+				<p:messages id="mensajeRespuesta" showDetail="true" closable="true">
+			        <p:autoUpdate />
+				</p:messages>
+				<p:dataTable value="#{editorialController.editoriales}" var="editorial" 
+							emptyMessage="No existen registros" paginator="true" rows="5" 
+							selectionMode="single" rowKey="#{editorial.id}" editable="true">
+					<p:ajax event="rowEdit" listener="#{editorialController.onRowEdit}" update=":frm:mensajeRespuesta" />
+       				<p:ajax event="rowEditCancel" listener="#{editorialController.onRowCancel}" update=":frm:mensajeRespuesta" />
+       			
+					<f:facet name="header">
+						<p:outputLabel value="Lista de Editoriales" />
+					</f:facet>
+					<p:column headerText="ID editorial">
+						<p:cellEditor>
+							<f:facet name="output"><h:outputText value="#{editorial.id}" /></f:facet>
+							<f:facet name="input"><h:outputText value="#{editorial.id}" /></f:facet>
+						</p:cellEditor>
+					</p:column>
+					<p:column headerText="Nombre editorial">
+						<p:cellEditor>
+							<f:facet name="output"><h:outputText value="#{editorial.nombre}" /></f:facet>
+							<f:facet name="input"><p:inputText value="#{editorial.nombre}" /></f:facet>
+						</p:cellEditor>
+					</p:column>
+					<p:column style="width:50px;"><p:rowEditor /></p:column>
+					<p:column style="width:50px;">
+			           <h:commandLink action="#{editorialController.eliminar(editorial.id)}">
+			           	<i data-feather="x-circle"></i>
+			           </h:commandLink>
+			       	</p:column>
+				</p:dataTable>
+			</h:form>
+		</ui:define>
+	</ui:composition>
+</body>
+</html>

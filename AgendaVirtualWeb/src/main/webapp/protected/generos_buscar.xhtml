@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+      
+<ui:composition template="/WEB-INF/templates/principal.xhtml">
+	<ui:define name="primaryTitle">Buscar genero</ui:define>
+	<ui:define name="content">
+          <div class="container">
+          <h:form id="frm">
+          	<p:messages id="mensajeRespuesta" showDetail="true" closable="true">
+			        <p:autoUpdate />
+			</p:messages>
+				<div class="form-group row">
+	                <p:outputLabel for="nombre" value="Nombre genero" class="col-sm-3 col-form-label"></p:outputLabel>
+	                <div class="col-sm-9">
+	                	<p:inputText id="nombre" class="form-control" value="#{generoController.genero.nombre}" required="true" placeholder="Ingresar nombre"></p:inputText>
+	                	<p:message for="nombre" display="text" />
+	                </div>
+				</div>
+				<div class="form-group row">
+					<p:outputLabel class="col-sm-3 col-form-label"></p:outputLabel>
+	                <div class="col-sm-9">
+	                  <p:commandButton class="btn btn-primary" value="Buscar" action="#{generoController.buscarPorNombre()}" update="tablaGeneros" ></p:commandButton>
+	                </div>
+	            </div>
+	            
+	            <p:dataTable id="tablaGeneros" value="#{generoController.generos}"  var="genero" editable="true">
+					<p:ajax event="rowEdit" listener="#{generoController.onRowEdit}" update=":frm:mensajeRespuesta" />
+	       			<p:ajax event="rowEditCancel" listener="#{generoController.onRowCancel}" update=":frm:mensajeRespuesta" />
+	       			
+					<f:facet name="header">
+						<p:outputLabel value="Resultado de búsqueda" />
+					</f:facet>
+					<p:column headerText="ID genero">
+						<p:cellEditor>
+							<f:facet name="output"><h:outputText value="#{genero.id}" /></f:facet>
+							<f:facet name="input"><h:outputText value="#{genero.id}" /></f:facet>
+						</p:cellEditor>
+					</p:column>
+					<p:column headerText="Nombre genero">
+						<p:cellEditor>
+							<f:facet name="output"><h:outputText value="#{genero.nombre}" /></f:facet>
+							<f:facet name="input"><p:inputText value="#{genero.nombre}" /></f:facet>
+						</p:cellEditor>
+					</p:column>
+					<p:column style="width:50px;"><p:rowEditor /></p:column>
+					<p:column style="width:70px;">
+			           <h:commandLink value="Delete" action="#{generoController.eliminar(genero.id)}" />
+			       	</p:column>
+				</p:dataTable>
+			</h:form>
+          </div>
+	</ui:define>
+</ui:composition>
+
+</html>

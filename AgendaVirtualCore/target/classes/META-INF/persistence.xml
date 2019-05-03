@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<persistence version="2.1"
+	xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+
+	<persistence-unit name="MySqlDS" transaction-type="JTA">
+		<jta-data-source>java:/MySqlDS</jta-data-source>
+		<class>pe.libreria.entity.Editorial</class>
+		<class>pe.libreria.entity.Libro</class>
+		<class>pe.libreria.entity.Genero</class>
+		<exclude-unlisted-classes>false</exclude-unlisted-classes>
+	</persistence-unit>
+</persistence>

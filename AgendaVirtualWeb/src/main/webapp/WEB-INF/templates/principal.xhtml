@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+  <h:head>
+    <meta charset="utf-8"></meta>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"></meta>
+    <h:outputStylesheet name="css/bootstrap.min.css" />
+    <h:outputStylesheet name="css/dashboard.css" />
+    <title><ui:insert name="pageTitle">Aplicaciones Open Source</ui:insert></title>
+  </h:head>
+  <body>
+	<!-- INICIO: TOP -->
+	<ui:include src="/WEB-INF/templates/header.xhtml"></ui:include>
+    <!-- FIN: TOP -->
+    
+    <div class="container-fluid">
+      <div class="row">
+        <!-- INICIO: MENU LATERAL -->
+        <ui:include src="/WEB-INF/templates/sidebar.xhtml"></ui:include>
+        <!-- FIN: MENU LATERAL -->
+
+        <!-- INICIO: CONTENIDO -->
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+            <h1 class="h2"><ui:insert name="primaryTitle">Titulo de pagina</ui:insert></h1>
+           </div>
+           
+           <ui:insert name="content">
+				CONTENIDO
+			</ui:insert>
+		</main>
+        <!-- FIN: CONTENIDO -->
+
+      </div>
+    </div>
+    <ui:include src="/WEB-INF/templates/footer.xhtml"></ui:include>
+  </body>
+</html>
