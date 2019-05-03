@@ -7,7 +7,7 @@ import javax.inject.Named;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
-import javax.transaction.Transactional;
+
 
 import pe.agendavirtual.entity.TipoDocumento;
 import pe.agendavirtual.repository.TipoDocumentoRepository;
@@ -21,7 +21,6 @@ public class TipoDocumentoRepositoryImpl implements TipoDocumentoRepository, Ser
 	private EntityManager em;
 	
 	@Override
-	@Transactional
 	public TipoDocumento buscarTipoDocumentoPorID(int id) {
 		TipoDocumento objTipoDocu = new TipoDocumento();
          try {
@@ -37,7 +36,7 @@ public class TipoDocumentoRepositoryImpl implements TipoDocumentoRepository, Ser
 	public List<TipoDocumento> buscarTipoDocumentoPorTitulo(String titulo) {
 		List<TipoDocumento> tipodocumentos = new ArrayList<TipoDocumento>();
 		try {
-			TypedQuery<TipoDocumento> query = em.createQuery("select a from tipo_documentos a where a.nombre like titulo",TipoDocumento.class);
+			TypedQuery<TipoDocumento> query = em.createQuery("select a from tipo_documentos a where a.nombre like nombre",TipoDocumento.class);
 			query.setParameter("nombre", "%"+titulo+"%");
 			tipodocumentos = query.getResultList();
 		} catch (Exception e) {
