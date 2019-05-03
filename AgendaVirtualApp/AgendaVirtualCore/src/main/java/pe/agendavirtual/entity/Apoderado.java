@@ -31,6 +31,7 @@ public class Apoderado implements Serializable {
 	@OneToOne
 	@JoinColumn(name = "tipo_documento_id")
 	private TipoDocumento tipodocumento;
+	
 	public int getId() {
 		return id;
 	}

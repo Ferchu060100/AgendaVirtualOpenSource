@@ -1,4 +1,4 @@
-package pe.agendavirtual.repository;
+package pe.agendavirtual.repository.impl;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -10,6 +10,7 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
 import pe.agendavirtual.entity.Apoderado;
+import pe.agendavirtual.repository.ApoderadoRepository;
 
 @Named
 public class ApoderadoRepositoryImpl implements ApoderadoRepository,Serializable {
@@ -54,9 +55,7 @@ public class ApoderadoRepositoryImpl implements ApoderadoRepository,Serializable
 		} catch (Exception e) {
 			System.out.print(e.getMessage());
 		}
-		
-		
-		
+
 		return apoderados;
 	}
 	
