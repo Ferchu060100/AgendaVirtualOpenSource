@@ -6,6 +6,7 @@
 
 	<persistence-unit name="MySqlDS" transaction-type="JTA">
 		<jta-data-source>java:/MySqlDS</jta-data-source>
+		<class>pe.agendavirtual.entity.Tipo_Documento</class>
 		<exclude-unlisted-classes>false</exclude-unlisted-classes>
 	</persistence-unit>
 </persistence>
