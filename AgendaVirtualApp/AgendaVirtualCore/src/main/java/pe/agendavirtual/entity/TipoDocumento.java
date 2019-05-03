@@ -10,7 +10,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="tipo_documentos")
-public class Tipo_Documento implements Serializable {
+public class TipoDocumento implements Serializable {
  private static final long serialVersionUID = 1L;
 	
  @Id	
