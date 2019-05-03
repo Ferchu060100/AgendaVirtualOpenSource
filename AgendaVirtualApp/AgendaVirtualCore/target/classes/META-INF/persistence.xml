@@ -7,6 +7,14 @@
 	<persistence-unit name="MySqlDS" transaction-type="JTA">
 		<jta-data-source>java:/MySqlDS</jta-data-source>
 		<class>pe.agendavirtual.entity.TipoDocumento</class>
+		<class>pe.agendavirtual.entity.Alumno</class>
+		<class>pe.agendavirtual.entity.Apoderado</class>
+		<class>pe.agendavirtual.entity.Curso</class>
+		<class>pe.agendavirtual.entity.Dia</class>
+		<class>pe.agendavirtual.entity.Evaluacion</class>
+		<class>pe.agendavirtual.entity.GradoEducativo</class>
+		<class>pe.agendavirtual.entity.HorarioAlumno</class>
+		<class>pe.agendavirtual.entity.NivelEducativo</class>
 		<exclude-unlisted-classes>false</exclude-unlisted-classes>
 	</persistence-unit>
 </persistence>
