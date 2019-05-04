@@ -14,7 +14,7 @@ import pe.agendavirtual.repository.CursoRepository;
 public class CursoRepositoryImpl implements CursoRepository,Serializable {
 	private static final long serialVersionUID = 1L;
 	
-	@PersistenceContext(unitName="MySqlDS")
+	@PersistenceContext(unitName="AgendaVirtualMySqlDS")
 	private EntityManager em;
 
 	@Override

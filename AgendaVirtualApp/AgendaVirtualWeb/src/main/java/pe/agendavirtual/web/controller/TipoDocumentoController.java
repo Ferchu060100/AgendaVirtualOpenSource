@@ -1,9 +1,10 @@
 package pe.agendavirtual.web.controller;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
-import javax.faces.bean.ViewScoped;
+import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import pe.agendavirtual.web.util.Message;
@@ -12,16 +13,17 @@ import pe.agendavirtual.repository.TipoDocumentoRepository;
 
 @Named
 @ViewScoped
-public class TipoDocumentoController {
+public class TipoDocumentoController implements Serializable {
 	private static final long serialVersionUID = 1L;
     @Inject	
 	TipoDocumentoRepository tipodocumentoRepo;
+    
 	private TipoDocumento tipodocumento;
     private List<TipoDocumento> tipodocumentos;
     
     @PostConstruct
     public void init() {
-    
+        tipodocumento = new TipoDocumento();
     	cargarTipoDocumentos();
     }
 	public void cargarTipoDocumentos(){

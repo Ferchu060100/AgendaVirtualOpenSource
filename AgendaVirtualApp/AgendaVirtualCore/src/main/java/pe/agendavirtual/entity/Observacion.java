@@ -24,6 +24,8 @@ public class Observacion {
 	private TipoObservacion observacion;
  @JoinColumn(name = "profesor_id")
 	private Profesor profesor;
+ 
+ 
 public int getId() {
 	return id;
 }
