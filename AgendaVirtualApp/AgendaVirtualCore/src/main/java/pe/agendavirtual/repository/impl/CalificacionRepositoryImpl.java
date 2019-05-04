@@ -60,27 +60,45 @@ public class CalificacionRepositoryImpl implements CalificacionRepository,Serial
 	}
 
 	@Override
-	public Calificacion registrar(Calificacion calificacion) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Calificacion modificar(Calificacion calificacion) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void eliminar(int id) {
-		// TODO Auto-generated method stub
+	public boolean registrar(Calificacion calificacion) {
+		boolean flag = false;
+		try {
+			em.persist(calificacion);
+			flag=true;
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
 		
+		return flag;
 	}
 
 	@Override
-	public Optional<Calificacion> listId(int id) {
-		// TODO Auto-generated method stub
-		return null;
+	public boolean modificar(Calificacion calificacion) {
+		boolean flag = false;
+		try {
+			em.merge(calificacion);
+			flag=true;
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		
+		return flag;
 	}
+
+	@Override
+	public boolean eliminar(int id) {
+		boolean flag = false;
+		try {
+			Calificacion objCalificacion = this.buscarCalificacionPorID(id);
+			em.remove(objCalificacion);
+			flag=true;
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		
+		return flag;
+	}
+
+
 
 }

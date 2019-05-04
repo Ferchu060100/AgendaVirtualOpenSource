@@ -12,11 +12,11 @@ public interface CalificacionRepository {
 	public List<Calificacion> listar();
 	
 	//CRUD
-	Calificacion registrar(Calificacion calificacion);
+	public boolean registrar(Calificacion calificacion);
 
-	Calificacion modificar(Calificacion calificacion);
+	public boolean modificar(Calificacion calificacion);
 
-	void eliminar(int id);
+	public boolean eliminar(int id);
 
-	Optional<Calificacion> listId(int id);
+
 }
