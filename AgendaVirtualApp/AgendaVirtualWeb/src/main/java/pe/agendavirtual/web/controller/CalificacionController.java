@@ -47,11 +47,11 @@ public class CalificacionController implements Serializable{
 	private Calificacion calificacionSeleccionada;
 	@PostConstruct
 	public void init() {
-		setCurso(new Curso());
-		setEvaluacion(new Evaluacion());
-		setProfesor(new Profesor());
-		setCalificacion(new Calificacion());
-		setCalificacionSeleccionada(new Calificacion());
+		curso = new Curso();
+		evaluacion = new Evaluacion();
+		profesor = new Profesor();
+		calificacion = new Calificacion();
+		calificacionSeleccionada = new Calificacion();
 		cargarCursos();
 		cargarProfesores();
 		cargarAlumnos();
@@ -116,7 +116,7 @@ public class CalificacionController implements Serializable{
 	
 	private void cargarEvaluaciones() {
 		try {
-			this.setEvaluaciones(evaluacionRepo.listar());
+			evaluaciones = evaluacionRepo.listar();
 		} catch (Exception e) {
 			Message.messageError("Ocurrió un error al listar las evaluaciones");
 			System.out.println(e.getMessage());
@@ -125,7 +125,7 @@ public class CalificacionController implements Serializable{
 	}
 	private void cargarProfesores() {
 		try {
-			this.setProfesores(profesorRepo.listar());
+			profesores = profesorRepo.listar();
 		} catch (Exception e) {
 			Message.messageError("Ocurrió un error al listar los profesores");
 			System.out.println(e.getMessage());
@@ -135,8 +135,7 @@ public class CalificacionController implements Serializable{
 	private void cargarAlumnos() {
 	   try {
 		
-		   this.setAlumnos(alumnoRepo.listar());
-		   
+		   this.alumnos = alumnoRepo.listar();		   
 	} catch (Exception e) {
 		Message.messageError("Ocurrió un error al listar los alumnos");
 		System.out.println(e.getMessage());

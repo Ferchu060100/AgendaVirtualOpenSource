@@ -17,9 +17,9 @@
                 <div class = "form-group row">
                 <p:outputLabel for="alumno" value="Alumno" class="col-sm-2 col-form-label"></p:outputLabel>
                  <div class="col-sm-10">
-	                	<p:selectOneMenu id="alumno" style="width:160px" value="#{CalificacionController.alumno}" converter="omnifaces.SelectItemsConverter">
+	                	<p:selectOneMenu id="alumno" style="width:160px" value="#{calificacionController.alumno}" converter="omnifaces.SelectItemsConverter">
 	                		<f:selectItem itemLabel="seleccionar" itemValue="" />
-							<f:selectItems value="#{CalificacionController.alumnos}" var="alumno" itemLabel="#{alumno.nombre}" itemValue="#{alumno}" />
+							<f:selectItems value="#{calificacionController.alumnos}" var="alumno" itemLabel="#{alumno.nombre}" itemValue="#{alumno}" />
 						</p:selectOneMenu>
 	                	<p:message for="alumno" display="text" />
 	                </div> 

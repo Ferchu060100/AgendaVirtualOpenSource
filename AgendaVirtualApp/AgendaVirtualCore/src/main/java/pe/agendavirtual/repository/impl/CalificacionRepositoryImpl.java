@@ -9,6 +9,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
+import javax.transaction.Transactional;
 
 import pe.agendavirtual.entity.Calificacion;
 import pe.agendavirtual.repository.CalificacionRepository;
@@ -60,6 +61,7 @@ public class CalificacionRepositoryImpl implements CalificacionRepository,Serial
 	}
 
 	@Override
+	@Transactional
 	public boolean registrar(Calificacion calificacion) {
 		boolean flag = false;
 		try {
@@ -73,6 +75,7 @@ public class CalificacionRepositoryImpl implements CalificacionRepository,Serial
 	}
 
 	@Override
+	@Transactional
 	public boolean modificar(Calificacion calificacion) {
 		boolean flag = false;
 		try {
@@ -86,6 +89,7 @@ public class CalificacionRepositoryImpl implements CalificacionRepository,Serial
 	}
 
 	@Override
+	@Transactional
 	public boolean eliminar(int id) {
 		boolean flag = false;
 		try {
