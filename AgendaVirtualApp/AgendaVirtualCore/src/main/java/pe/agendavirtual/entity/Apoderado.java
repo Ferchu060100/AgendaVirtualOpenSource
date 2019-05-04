@@ -22,11 +22,17 @@ public class Apoderado implements Serializable {
 	private int id;
     @Column(name="nombre")
 	private String nombre;
+    @Column(name="apellido_paterno")
 	private String apellidopaterno;
+    @Column(name="apellido_materno")
 	private String apellidomaterno;
+    @Column(name="fecha_nacimiento")
 	private Date fechanacimiento;
+    @Column(name="nro_documento")
 	private String nrodocumento;
+    @Column(name="correo")
 	private String correo;
+    @Column(name="telefono")
 	private String telefono;
 	@OneToOne
 	@JoinColumn(name = "tipo_documento_id")

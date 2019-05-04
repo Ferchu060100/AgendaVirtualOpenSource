@@ -17,9 +17,9 @@
                 <div class = "form-group row">
                 <p:outputLabel for="alumno" value="Alumno" class="col-sm-2 col-form-label"></p:outputLabel>
                  <div class="col-sm-10">
-	                	<p:selectOneMenu id="alumno" style="width:160px" value="#{calificacionController.alumno}" converter="omnifaces.SelectItemsConverter">
+	                	<p:selectOneMenu id="alumno" style="width:160px" value="#{calificacionController.calificacion.alumno}" converter="omnifaces.SelectItemsConverter">
 	                		<f:selectItem itemLabel="seleccionar" itemValue="" />
-							<f:selectItems value="#{calificacionController.alumnos}" var="alumno" itemLabel="#{alumno.nombre}" itemValue="#{alumno}" />
+							<f:selectItems value="#{calificacionController.alumnos}" var="alumno1" itemLabel="#{alumno1.nombre}" itemValue="#{alumno1}" />
 						</p:selectOneMenu>
 	                	<p:message for="alumno" display="text" />
 	                </div> 
@@ -28,9 +28,9 @@
    <div class = "form-group row">
                 <p:outputLabel for="curso" value="Curso" class="col-sm-2 col-form-label"></p:outputLabel>
                  <div class="col-sm-10">
-	                	<p:selectOneMenu id="curso" style="width:160px" value="#{CalificacionController.curso}" converter="omnifaces.SelectItemsConverter">
+	                	<p:selectOneMenu id="curso" style="width:160px" value="#{calificacionController.calificacion.curso}" converter="omnifaces.SelectItemsConverter">
 	                		<f:selectItem itemLabel="seleccionar" itemValue="" />
-							<f:selectItems value="#{CalificacionController.cursos}" var="curso" itemLabel="#{curso.nombre}" itemValue="#{curso}" />
+							<f:selectItems value="#{calificacionController.cursos}" var="curso1" itemLabel="#{curso1.nombre}" itemValue="#{curso1}" />
 						</p:selectOneMenu>
 	                	<p:message for="curso" display="text" />
 	                </div> 
@@ -39,9 +39,9 @@
     <div class = "form-group row">
                 <p:outputLabel for="evaluacion" value="Evaluacion" class="col-sm-2 col-form-label"></p:outputLabel>
                  <div class="col-sm-10">
-	                	<p:selectOneMenu id="evaluacion" style="width:160px" value="#{CalificacionController.evaluacion}" converter="omnifaces.SelectItemsConverter">
+	                	<p:selectOneMenu id="evaluacion" style="width:160px" value="#{calificacionController.calificacion.evaluacion}" converter="omnifaces.SelectItemsConverter">
 	                		<f:selectItem itemLabel="seleccionar" itemValue="" />
-							<f:selectItems value="#{CalificacionController.evaluaciones}" var="evaluacion" itemLabel="#{evaluacion.nombre}" itemValue="#{evaluacion}" />
+							<f:selectItems value="#{calificacionController.evaluaciones}" var="evaluacion" itemLabel="#{evaluacion.nombre}" itemValue="#{evaluacion}" />
 						</p:selectOneMenu>
 	                	<p:message for="evaluacion" display="text" />
 	                </div> 
@@ -50,9 +50,9 @@
     <div class = "form-group row">
                 <p:outputLabel for="profesor" value="Profesor" class="col-sm-2 col-form-label"></p:outputLabel>
                  <div class="col-sm-10">
-	                	<p:selectOneMenu id="profesor" style="width:160px" value="#{CalificacionController.profesor}" converter="omnifaces.SelectItemsConverter">
+	                	<p:selectOneMenu id="profesor" style="width:160px" value="#{calificacionController.calificacion.profesor}" converter="omnifaces.SelectItemsConverter">
 	                		<f:selectItem itemLabel="seleccionar" itemValue="" />
-							<f:selectItems value="#{CalificacionController.profesores}" var="profesor" itemLabel="#{profesor.nombre}" itemValue="#{profesor}" />
+							<f:selectItems value="#{calificacionController.profesores}" var="profesor" itemLabel="#{profesor.nombre}" itemValue="#{profesor}" />
 						</p:selectOneMenu>
 	                	<p:message for="profesor" display="text" />
 	                </div> 
@@ -61,7 +61,7 @@
 <div class="form-group row">
 	                <p:outputLabel for="nota" value="Nota" class="col-sm-2 col-form-label"></p:outputLabel>
 	                <div class="col-sm-10">
-	                	<p:inputText id="nota" class="form-control" value="#{CalificacionController.calificacion.nota}" required="true" placeholder="Ingresar nota"></p:inputText>
+	                	<p:inputText id="nota" class="form-control" value="#{calificacionController.calificacion.nota}" required="true" placeholder="Ingresar nota"></p:inputText>
 	                	<p:message for="nota" display="text" />
 	                </div>
 				</div>	
@@ -69,7 +69,7 @@
 <div class="form-group row">
 	                <p:outputLabel for="fecha" value="Fecha" class="col-sm-2 col-form-label"></p:outputLabel>
 	                <div class="col-sm-10">
-	                	<p:inputText id="fecha" class="form-control" value="#{CalificacionController.calificacion.fecha}" required="true" placeholder="Ingresar fecha"></p:inputText>
+	                	<p:inputText id="fecha" class="form-control" value="#{calificacionController.calificacion.fecha}" required="true" placeholder="Ingresar fecha"></p:inputText>
 	                	<p:message for="fecha" display="text" />
 	                </div>
 				</div>	
@@ -77,7 +77,7 @@
 	<div class="form-group row">
 					<p:outputLabel class="col-sm-2 col-form-label"></p:outputLabel>
 	                <div class="col-sm-10">
-	                  <p:commandButton update="mensajeRespuesta" class="btn btn-primary" value="Guardar" action="#{CalificacionController.guardar()}"></p:commandButton>
+	                  <p:commandButton update="mensajeRespuesta" class="btn btn-primary" value="Guardar" action="#{calificacionController.guardar()}"></p:commandButton>
 	                </div>
 	            </div>
 

@@ -5,7 +5,7 @@
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
 
 	<persistence-unit name="AgendaVirtualMySqlDS" transaction-type="JTA">
-		<jta-data-source>java:/MySqlDS</jta-data-source>
+		<jta-data-source>java:/AgendaVirtualMySqlDS</jta-data-source>
 		<class>pe.agendavirtual.entity.TipoDocumento</class>
 		<class>pe.agendavirtual.entity.Alumno</class>
 		<class>pe.agendavirtual.entity.Apoderado</class>

@@ -34,7 +34,7 @@ public class CursoRepositoryImpl implements CursoRepository,Serializable {
 	public List<Curso> buscarCursoPorNombre(String titulo) {
 		List<Curso> cursos = new ArrayList<Curso>();
 		try {
-			TypedQuery<Curso> query = em.createQuery("select  a from cursos a where a.nombre like:nombre",Curso.class);
+			TypedQuery<Curso> query = em.createQuery("select  a from Curso a where a.nombre like:nombre",Curso.class);
 			query.setParameter("nombre", "%"+titulo+"%");
 			cursos= query.getResultList();
 		} catch (Exception e) {
@@ -48,7 +48,7 @@ public class CursoRepositoryImpl implements CursoRepository,Serializable {
 	public List<Curso> listar() {
 		List<Curso> cursos = new ArrayList<Curso>();
 		try {
-			TypedQuery<Curso> query = em.createQuery("select a from cursos a ",Curso.class);
+			TypedQuery<Curso> query = em.createQuery("select a from Curso a ",Curso.class);
 			cursos = query.getResultList();
 		} catch (Exception e) {
 			System.out.print(e.getMessage());

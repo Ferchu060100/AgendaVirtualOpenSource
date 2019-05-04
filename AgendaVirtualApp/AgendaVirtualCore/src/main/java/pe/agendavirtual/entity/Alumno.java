@@ -22,19 +22,28 @@ public class Alumno implements Serializable {
 	private int id;
     @Column(name="nombre")
 	private String nombre;
+    @Column(name="apellido_paterno")
 	private String apellidopaterno;
+	@Column(name="apellido_materno")
 	private String apellidomaterno;
+	@Column(name="fecha_nacimiento")
 	private Date fechanacimiento;
+	@Column(name="nro_documento")
 	private String nrodocumento;
+	@Column(name="correo")
 	private String correo;
+	@Column(name="telefono")
 	private String telefono;
+	@Column(name="riesgo_academico")
 	private boolean riesgoacademico;
     @ManyToOne
 	@JoinColumn(name = "apoderado_id")
 	private Apoderado apoderado;
-    @JoinColumn(name = "tipodocumento_id")
+    @ManyToOne
+    @JoinColumn(name = "tipo_documento_id")
 	private TipoDocumento documento;
-    @JoinColumn(name = "gradoeducativo_id")
+    @ManyToOne
+    @JoinColumn(name = "grado_educativo_id")
 	private GradoEducativo grado;
 	
 	

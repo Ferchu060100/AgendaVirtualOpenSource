@@ -48,7 +48,7 @@ public class AlumnoRepositoryImpl implements AlumnoRepository,Serializable {
 	public List<Alumno> listar() {
 		List<Alumno> alumnos = new ArrayList<Alumno>();
 		try {
-			TypedQuery<Alumno> query = em.createQuery("select a from alumnos a ",Alumno.class);
+			TypedQuery<Alumno> query = em.createQuery("select a from Alumno a ",Alumno.class);
 			alumnos = query.getResultList();
 		} catch (Exception e) {
 			System.out.print(e.getMessage());
