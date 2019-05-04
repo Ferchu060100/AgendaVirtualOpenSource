@@ -17,7 +17,7 @@ import java.io.Serializable;
 public class TipoDocumentoRepositoryImpl implements TipoDocumentoRepository, Serializable {
 	private static final long serialVersionUID = 1L;  
 	
-	@PersistenceContext(unitName="MysqlDS")
+	@PersistenceContext(unitName="AgendaVirtualMysqlDS")
 	private EntityManager em;
 	
 	@Override

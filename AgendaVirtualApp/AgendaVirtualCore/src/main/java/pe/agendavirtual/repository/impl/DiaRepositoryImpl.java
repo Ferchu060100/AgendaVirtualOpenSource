@@ -14,7 +14,7 @@ import pe.agendavirtual.repository.DiaRepository;
 public class DiaRepositoryImpl implements DiaRepository,Serializable {
 	private static final long serialVersionUID = 1L;
 
-	@PersistenceContext(unitName="MySqlDS")
+	@PersistenceContext(unitName="AgendaVirtualMySqlDS")
 	private EntityManager em;
 
 	@Override

@@ -16,7 +16,7 @@ import pe.agendavirtual.repository.ApoderadoRepository;
 public class ApoderadoRepositoryImpl implements ApoderadoRepository,Serializable {
 	private static final long serialVersionUID = 1L;
 
-	@PersistenceContext(unitName="MySqlDS")
+	@PersistenceContext(unitName="AgendaVirtualMySqlDS")
 	private EntityManager em;
 	
 	@Override

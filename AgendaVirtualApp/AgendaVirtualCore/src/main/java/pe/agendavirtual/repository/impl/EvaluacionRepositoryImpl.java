@@ -13,7 +13,7 @@ import  pe.agendavirtual.repository.EvaluacionRepository;
 
 public class EvaluacionRepositoryImpl implements EvaluacionRepository,Serializable{
 	private static final long serialVersionUID = 1L;
-	@PersistenceContext(unitName="MySqlDS")
+	@PersistenceContext(unitName="AgendaVirtualMySqlDS")
 	private EntityManager em;
 	@Override
 	public Evaluacion buscarEvaluacionPorID(int id) {
