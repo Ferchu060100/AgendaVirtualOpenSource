@@ -16,7 +16,7 @@ import pe.agendavirtual.repository.ProfesorRepository;
 public class ProfesorRepositoryImpl implements ProfesorRepository,Serializable {
 	private static final long serialVersionUID = 1L;
 	
-	@PersistenceContext(unitName="MySqlDS")
+	@PersistenceContext(unitName="AgendaVirtualMySqlDS")
 	private EntityManager em;
 	
 	@Override

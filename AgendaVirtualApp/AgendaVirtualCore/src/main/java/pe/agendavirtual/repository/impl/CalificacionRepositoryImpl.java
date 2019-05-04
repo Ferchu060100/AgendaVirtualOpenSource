@@ -15,7 +15,7 @@ import pe.agendavirtual.repository.CalificacionRepository;
 public class CalificacionRepositoryImpl implements CalificacionRepository{
 	private static final long serialVersionUID = 1L;
 
-	@PersistenceContext(unitName="MySqlDS")
+	@PersistenceContext(unitName="AgendaVirtualMySqlDS")
 	private EntityManager em;
 	
 	@Override
