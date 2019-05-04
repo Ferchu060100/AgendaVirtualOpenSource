@@ -12,7 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="Tipo_Observaciones")
+@Table(name="tipo_observaciones")
 public class TipoObservacion implements Serializable {
 
 	private static final long serialVersionUID = 1L;
