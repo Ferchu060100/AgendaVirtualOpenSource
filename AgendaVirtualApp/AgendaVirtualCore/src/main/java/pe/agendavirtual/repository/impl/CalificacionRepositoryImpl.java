@@ -51,7 +51,7 @@ public class CalificacionRepositoryImpl implements CalificacionRepository,Serial
 	public List<Calificacion> listar() {
 		List<Calificacion> calificaciones = new ArrayList<Calificacion>();
 		try {
-			TypedQuery<Calificacion> query = em.createQuery("select a from calificaciones a ",Calificacion.class);
+			TypedQuery<Calificacion> query = em.createQuery("select a from Calificacion a ",Calificacion.class);
 			calificaciones = query.getResultList();
 		} catch (Exception e) {
 			System.out.print(e.getMessage());

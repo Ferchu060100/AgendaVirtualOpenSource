@@ -36,7 +36,7 @@ public class ProfesorRepositoryImpl implements ProfesorRepository,Serializable {
 	public List<Profesor> buscarProfesorPorNombre(String titulo) {
 		List<Profesor> profesores = new ArrayList<Profesor>();
 		try {
-			TypedQuery<Profesor> query = em.createQuery("select  a from profesores a where a.nombre like:nombre",Profesor.class);
+			TypedQuery<Profesor> query = em.createQuery("select  a from Profesor a where a.nombre like:nombre",Profesor.class);
 			query.setParameter("nombre", "%"+titulo+"%");
 			profesores= query.getResultList();
 		} catch (Exception e) {
@@ -50,7 +50,7 @@ public class ProfesorRepositoryImpl implements ProfesorRepository,Serializable {
 	public List<Profesor> listar() {
 		List<Profesor> profesores = new ArrayList<Profesor>();
 		try {
-			TypedQuery<Profesor> query = em.createQuery("select a from profesores a ",Profesor.class);
+			TypedQuery<Profesor> query = em.createQuery("select a from Profesor a ",Profesor.class);
 			profesores = query.getResultList();
 		} catch (Exception e) {
 			System.out.print(e.getMessage());

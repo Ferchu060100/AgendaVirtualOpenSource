@@ -30,7 +30,7 @@ public class EvaluacionRepositoryImpl implements EvaluacionRepository,Serializab
 	public List<Evaluacion> buscarEvaluacionPorTitulo(String titulo) {
 		List<Evaluacion> evaluaciones = new ArrayList<Evaluacion>();
 		try {
-			TypedQuery<Evaluacion> query = em.createQuery("select a from evaluaciones a where a.nombre like :nombre",Evaluacion.class);
+			TypedQuery<Evaluacion> query = em.createQuery("select a from Evaluacion a where a.nombre like :nombre",Evaluacion.class);
 			query.setParameter("nombre", "%"+titulo+"%") ;
 			evaluaciones = query.getResultList();
 		} catch (Exception e) {
@@ -44,7 +44,7 @@ public class EvaluacionRepositoryImpl implements EvaluacionRepository,Serializab
 	public List<Evaluacion> listar() {
 		List<Evaluacion> evaluaciones = new ArrayList<Evaluacion>();
 		try {
-			TypedQuery<Evaluacion> query = em.createQuery("select a from evaluaciones a",Evaluacion.class);
+			TypedQuery<Evaluacion> query = em.createQuery("select a from Evaluacion a",Evaluacion.class);
 			evaluaciones = query.getResultList();
 		} catch (Exception e) {
 			System.out.print(e.getMessage());

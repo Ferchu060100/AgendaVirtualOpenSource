@@ -41,7 +41,7 @@
                  <div class="col-sm-10">
 	                	<p:selectOneMenu id="evaluacion" style="width:160px" value="#{calificacionController.calificacion.evaluacion}" converter="omnifaces.SelectItemsConverter">
 	                		<f:selectItem itemLabel="seleccionar" itemValue="" />
-							<f:selectItems value="#{calificacionController.evaluaciones}" var="evaluacion" itemLabel="#{evaluacion.nombre}" itemValue="#{evaluacion}" />
+							<f:selectItems value="#{calificacionController.evaluaciones}" var="evaluacion1" itemLabel="#{evaluacion1.nombre}" itemValue="#{evaluacion1}" />
 						</p:selectOneMenu>
 	                	<p:message for="evaluacion" display="text" />
 	                </div> 
@@ -52,7 +52,7 @@
                  <div class="col-sm-10">
 	                	<p:selectOneMenu id="profesor" style="width:160px" value="#{calificacionController.calificacion.profesor}" converter="omnifaces.SelectItemsConverter">
 	                		<f:selectItem itemLabel="seleccionar" itemValue="" />
-							<f:selectItems value="#{calificacionController.profesores}" var="profesor" itemLabel="#{profesor.nombre}" itemValue="#{profesor}" />
+							<f:selectItems value="#{calificacionController.profesores}" var="profesor1" itemLabel="#{profesor1.nombre}" itemValue="#{profesor1}" />
 						</p:selectOneMenu>
 	                	<p:message for="profesor" display="text" />
 	                </div> 

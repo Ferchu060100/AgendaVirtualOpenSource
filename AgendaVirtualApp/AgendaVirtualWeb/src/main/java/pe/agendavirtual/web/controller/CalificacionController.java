@@ -62,10 +62,10 @@ public class CalificacionController implements Serializable{
 	
 	public void guardar() {
 		try {
-			calificacion.setAlumno(alumno);
-			calificacion.setCurso(curso);
-			calificacion.setProfesor(profesor);
-			calificacion.setEvaluacion(evaluacion);
+			calificacion.setAlumno(calificacion.getAlumno());
+			calificacion.setCurso(calificacion.getCurso());
+			calificacion.setProfesor(calificacion.getProfesor());
+			calificacion.setEvaluacion(calificacion.getEvaluacion());
 			boolean flag = calificacionRepo.registrar(calificacion);
 			if(flag) {
 				this.limpiarFormulario();

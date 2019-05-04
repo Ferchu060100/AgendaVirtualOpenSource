@@ -20,7 +20,7 @@ private static final long serialVersionUID = 1L;
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private float nota;
-	private Date fecha;
+	private String fecha;
 	
 	@ManyToOne
 	@JoinColumn(name = "curso_id")
@@ -46,10 +46,10 @@ private static final long serialVersionUID = 1L;
 	public void setNota(float nota) {
 		this.nota = nota;
 	}
-	public Date getFecha() {
+	public String getFecha() {
 		return fecha;
 	}
-	public void setFecha(Date fecha) {
+	public void setFecha(String fecha) {
 		this.fecha = fecha;
 	}
 	public Curso getCurso() {
