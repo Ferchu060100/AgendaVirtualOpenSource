@@ -16,7 +16,7 @@
 				</p:messages>
     <p:dataTable value="#{calificacionController.calificaciones}" var="calificacion" id="listadocalificaciones"
 							emptyMessage="No existen registros" paginator="true" rows="5" 
-							selectionMode="single" rowKey="#{editorial.id}" editable="true">
+							selectionMode="single" rowKey="#{calificacion.id}" editable="true">
 	<f:facet name="header">
 						<p:outputLabel value="Lista de Calificaciones" />
 					</f:facet>
@@ -39,11 +39,11 @@
 						<p:outputLabel value="#{calificacion.fecha}"></p:outputLabel>
 					</p:column>
 					
-	     	<p:column style="width:100px;">
+	     	<!--  <p:column style="width:100px;">
 				       	 <p:commandButton update=":frmDialog:calificacionDialog" oncomplete="PF('calificacionDetalle').show()" value="editar">
 			                 <f:setPropertyActionListener value="#{calificacion}" target="#{calificacionController.calificacionSeleccionada}" />
 			             </p:commandButton>
-			        </p:column>
+			        </p:column> -->
 			        
 			<p:column style="width:50px;">
 			           <h:commandLink  action="#{calificacionController.eliminar(calificacion.id)}">
