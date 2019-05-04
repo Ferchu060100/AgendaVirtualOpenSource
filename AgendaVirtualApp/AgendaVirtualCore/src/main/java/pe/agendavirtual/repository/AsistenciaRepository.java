@@ -12,7 +12,7 @@ public interface AsistenciaRepository {
 	
 	public boolean actualizar(Asistencia asistencia);
 		
-	public Asistencia buscarObservacionPorID(int id);
+	public Asistencia buscarAsistenciaPorID(int id);
 	
 	public List<Asistencia> listar();
 	
