@@ -25,8 +25,8 @@ public class HorarioAlumno implements Serializable {
 	private Curso curso;
 	@JoinColumn(name = "alumno_id")
 	private Alumno alumno;
-	/*@JoinColumn(name = "profesor_id")
-	private Profesor profesor;*/
+	@JoinColumn(name = "profesor_id")
+	private Profesor profesor;
 	
 	public int getId() {
 		return id;
@@ -64,11 +64,11 @@ public class HorarioAlumno implements Serializable {
 	public void setAlumno(Alumno alumno) {
 		this.alumno = alumno;
 	}
-	/*public Profesor getProfesor() {
+	public Profesor getProfesor() {
 		return profesor;
 	}
 	public void setProfesor(Profesor profesor) {
 		this.profesor = profesor;
-	}*/
+	}
 	
 }
