@@ -1,3 +1,6 @@
+package pe.agendavirtual.entity;
+
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -10,7 +13,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="observaciones")
-public class Observacion {
+public class Observacion implements Serializable{
 	private static final long serialVersionUID = 1L;
  @Id	
  @GeneratedValue(strategy=GenerationType.IDENTITY)
