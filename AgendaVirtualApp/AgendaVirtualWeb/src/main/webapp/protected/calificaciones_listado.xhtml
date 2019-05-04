@@ -1,0 +1,59 @@
+<!DOCTYPE html > 
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head></h:head> 
+<body>
+    <ui:composition template="/WEB-INF/templates/principal.xhtml">
+    <ui:define name="primaryTitle">Listado de calificaciones</ui:define>
+    <ui:define name="content">
+    <h:form id = "frm">
+    	<p:messages id="mensajeRespuesta" showDetail="true" closable="true">
+			        <p:autoUpdate />
+				</p:messages>
+    <p:dataTable value="#{calificacionController.calificaciones}" var="calificacion" id="listadocalificaciones"
+							emptyMessage="No existen registros" paginator="true" rows="5" 
+							selectionMode="single" rowKey="#{editorial.id}" editable="true">
+	<f:facet name="header">
+						<p:outputLabel value="Lista de Calificaciones" />
+					</f:facet>
+		<p:column headerText="Alumno">
+						<p:outputLabel value="#{calificacion.alumno.nombre}"></p:outputLabel>
+					</p:column>
+	    	<p:column headerText="Profesor">
+						<p:outputLabel value="#{calificacion.profesor.nombre}"></p:outputLabel>
+					</p:column>
+	    	<p:column headerText="Curso">
+						<p:outputLabel value="#{calificacion.curso.nombre}"></p:outputLabel>
+					</p:column>
+	        	<p:column headerText="Evaluacion">
+						<p:outputLabel value="#{calificacion.evaluacion.nombre}"></p:outputLabel>
+					</p:column>
+		<p:column headerText="Nota">
+						<p:outputLabel value="#{calificacion.nota}"></p:outputLabel>
+					</p:column>
+		<p:column headerText="Fecha">
+						<p:outputLabel value="#{calificacion.fecha}"></p:outputLabel>
+					</p:column>
+					
+	     	<p:column style="width:100px;">
+				       	 <p:commandButton update=":frmDialog:calificacionDialog" oncomplete="PF('calificacionDetalle').show()" value="editar">
+			                 <f:setPropertyActionListener value="#{calificacion}" target="#{calificacionController.calificacionSeleccionada}" />
+			             </p:commandButton>
+			        </p:column>
+			        
+			<p:column style="width:50px;">
+			           <h:commandLink  action="#{calificacionController.eliminar(calificacion.id)}">
+			           	<i data-feather="x-circle"></i>
+			           </h:commandLink>
+			       	</p:column>	        
+
+	</p:dataTable>   
+    </h:form>
+    </ui:define>
+    </ui:composition>
+</body> 
+</html>

@@ -39,6 +39,7 @@ public class CalificacionController implements Serializable{
 	private List<Evaluacion>evaluaciones;
 	private List<Profesor>profesores;
 	private List<Alumno>alumnos;
+	private List<Calificacion>calificaciones;
 	private Curso curso;
 	private Evaluacion evaluacion;
 	private Profesor profesor;
@@ -57,7 +58,16 @@ public class CalificacionController implements Serializable{
 		cargarProfesores();
 		cargarAlumnos();
 		cargarEvaluaciones();
+		cargarCalificaciones();
+	}
+	public void cargarCalificaciones() {
+		try {
 		
+			this.setCalificaciones(calificacionRepo.listar());
+		} catch (Exception e) {
+			Message.messageError("Ocurrió un error al listar las editoriales");
+			System.out.println(e.getMessage());
+		}
 	}
 	
 	public void guardar() {
@@ -108,7 +118,19 @@ public class CalificacionController implements Serializable{
 		
 	}
 	
-	
+	public void eliminar(int calificacionID) {
+	try {
+		boolean flag = calificacionRepo.eliminar(calificacionID);
+		if(flag ) {
+		this.cargarCalificaciones();
+		Message.messageInfo("Calificacion Eliminada");
+		}else {Message.messageError("No se pudo eliminar la calificacion");}
+	} catch (Exception e) {
+		Message.messageError("Ocurrió un error al eliminar la calificacion");
+		System.out.println(e.getMessage());
+		
+	}	
+	}
 	
 	public void limpiarFormulario() {
 		calificacion = new Calificacion();
@@ -214,6 +236,12 @@ public class CalificacionController implements Serializable{
 	}
 	public void setCalificacionSeleccionada(Calificacion calificacionSeleccionada) {
 		this.calificacionSeleccionada = calificacionSeleccionada;
+	}
+	public List<Calificacion> getCalificaciones() {
+		return calificaciones;
+	}
+	public void setCalificaciones(List<Calificacion> calificaciones) {
+		this.calificaciones = calificaciones;
 	}
 	
 	
