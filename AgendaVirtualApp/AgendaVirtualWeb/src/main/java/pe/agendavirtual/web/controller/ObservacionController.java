@@ -3,6 +3,7 @@ package pe.agendavirtual.web.controller;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
 import pe.agendavirtual.entity.Alumno;
