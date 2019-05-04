@@ -14,7 +14,7 @@ import pe.agendavirtual.repository.HorarioProfesorRepository;
 public class HorarioProfesorRepositoryImpl implements HorarioProfesorRepository,Serializable {
 	private static final long serialVersionUID = 1L;
 
-	@PersistenceContext(unitName="MySqlDS")
+	@PersistenceContext(unitName="AgendaVirtualMySqlDS")
 	private EntityManager em;
 	
 	@Override

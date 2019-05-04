@@ -18,7 +18,7 @@ import pe.agendavirtual.repository.AsistenciaRepository;
 public class AsistenciaRepositoryImpl implements AsistenciaRepository, Serializable  {
 private static final long serialVersionUID = 1L;
 	
-	@PersistenceContext(unitName="MySqlDS")
+	@PersistenceContext(unitName="AgendaVirtualMySqlDS")
 	private EntityManager em;
 	
 	

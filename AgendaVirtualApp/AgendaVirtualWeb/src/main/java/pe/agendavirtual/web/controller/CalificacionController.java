@@ -56,6 +56,7 @@ public class CalificacionController implements Serializable{
 		cargarProfesores();
 		cargarAlumnos();
 		cargarEvaluaciones();
+		
 	}
 	
 	public void guardar() {

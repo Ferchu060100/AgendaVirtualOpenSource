@@ -13,11 +13,11 @@ import pe.agendavirtual.entity.TipoObservacion;
 import pe.agendavirtual.repository.TipoObservacionRepository;
 
 @Named
-public class TipoObservacionReposioryImpl implements TipoObservacionRepository, Serializable {
+public class TipoObservacionRepositoryImpl implements TipoObservacionRepository, Serializable {
 
 private static final long serialVersionUID = 1L;
 	
-	@PersistenceContext(unitName="MySqlDS")
+	@PersistenceContext(unitName="AgendaVirtualMySqlDS")
 	private EntityManager em;
 	
 	@Override

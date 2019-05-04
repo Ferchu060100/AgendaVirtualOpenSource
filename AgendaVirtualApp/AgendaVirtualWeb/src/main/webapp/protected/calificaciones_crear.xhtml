@@ -1,0 +1,89 @@
+<!DOCTYPE html >
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<h:head></h:head> 
+<body>
+<ui:composition template = "/WEB-INF/templates/principal.xhtml" >
+<ui:define name="primaryTitle">Agregar Calificacion</ui:define>
+<ui:define name="content">
+<div class="container">
+<h:form>
+	<p:messages id="mensajeRespuesta" showDetail="true" closable="true">
+			        <p:autoUpdate />
+			    </p:messages>
+                <div class = "form-group row">
+                <p:outputLabel for="alumno" value="Alumno" class="col-sm-2 col-form-label"></p:outputLabel>
+                 <div class="col-sm-10">
+	                	<p:selectOneMenu id="alumno" style="width:160px" value="#{CalificacionController.alumno}" converter="omnifaces.SelectItemsConverter">
+	                		<f:selectItem itemLabel="seleccionar" itemValue="" />
+							<f:selectItems value="#{CalificacionController.alumnos}" var="alumno" itemLabel="#{alumno.nombre}" itemValue="#{alumno}" />
+						</p:selectOneMenu>
+	                	<p:message for="alumno" display="text" />
+	                </div> 
+                </div>
+
+   <div class = "form-group row">
+                <p:outputLabel for="curso" value="Curso" class="col-sm-2 col-form-label"></p:outputLabel>
+                 <div class="col-sm-10">
+	                	<p:selectOneMenu id="curso" style="width:160px" value="#{CalificacionController.curso}" converter="omnifaces.SelectItemsConverter">
+	                		<f:selectItem itemLabel="seleccionar" itemValue="" />
+							<f:selectItems value="#{CalificacionController.cursos}" var="curso" itemLabel="#{curso.nombre}" itemValue="#{curso}" />
+						</p:selectOneMenu>
+	                	<p:message for="curso" display="text" />
+	                </div> 
+                </div>                
+ 
+    <div class = "form-group row">
+                <p:outputLabel for="evaluacion" value="Evaluacion" class="col-sm-2 col-form-label"></p:outputLabel>
+                 <div class="col-sm-10">
+	                	<p:selectOneMenu id="evaluacion" style="width:160px" value="#{CalificacionController.evaluacion}" converter="omnifaces.SelectItemsConverter">
+	                		<f:selectItem itemLabel="seleccionar" itemValue="" />
+							<f:selectItems value="#{CalificacionController.evaluaciones}" var="evaluacion" itemLabel="#{evaluacion.nombre}" itemValue="#{evaluacion}" />
+						</p:selectOneMenu>
+	                	<p:message for="evaluacion" display="text" />
+	                </div> 
+                </div>
+
+    <div class = "form-group row">
+                <p:outputLabel for="profesor" value="Profesor" class="col-sm-2 col-form-label"></p:outputLabel>
+                 <div class="col-sm-10">
+	                	<p:selectOneMenu id="profesor" style="width:160px" value="#{CalificacionController.profesor}" converter="omnifaces.SelectItemsConverter">
+	                		<f:selectItem itemLabel="seleccionar" itemValue="" />
+							<f:selectItems value="#{CalificacionController.profesores}" var="profesor" itemLabel="#{profesor.nombre}" itemValue="#{profesor}" />
+						</p:selectOneMenu>
+	                	<p:message for="profesor" display="text" />
+	                </div> 
+                </div>
+
+<div class="form-group row">
+	                <p:outputLabel for="nota" value="Nota" class="col-sm-2 col-form-label"></p:outputLabel>
+	                <div class="col-sm-10">
+	                	<p:inputText id="nota" class="form-control" value="#{CalificacionController.calificacion.nota}" required="true" placeholder="Ingresar nota"></p:inputText>
+	                	<p:message for="nota" display="text" />
+	                </div>
+				</div>	
+
+<div class="form-group row">
+	                <p:outputLabel for="fecha" value="Fecha" class="col-sm-2 col-form-label"></p:outputLabel>
+	                <div class="col-sm-10">
+	                	<p:inputText id="fecha" class="form-control" value="#{CalificacionController.calificacion.fecha}" required="true" placeholder="Ingresar fecha"></p:inputText>
+	                	<p:message for="fecha" display="text" />
+	                </div>
+				</div>	
+
+	<div class="form-group row">
+					<p:outputLabel class="col-sm-2 col-form-label"></p:outputLabel>
+	                <div class="col-sm-10">
+	                  <p:commandButton update="mensajeRespuesta" class="btn btn-primary" value="Guardar" action="#{CalificacionController.guardar()}"></p:commandButton>
+	                </div>
+	            </div>
+
+</h:form>
+</div>
+</ui:define>
+</ui:composition>  
+</body> 
+</html>

@@ -16,7 +16,7 @@ import pe.agendavirtual.repository.NivelEducativoRepository;
 public class NivelEducativoRepositoryImpl implements NivelEducativoRepository, Serializable {
 	private static final long serialVersionUID = 1L;  
 	
-	@PersistenceContext(unitName="AgendaVirtualMysqlDS")
+	@PersistenceContext(unitName="AgendaVirtualMySqlDS")
 	private EntityManager em;
 
 	@Override

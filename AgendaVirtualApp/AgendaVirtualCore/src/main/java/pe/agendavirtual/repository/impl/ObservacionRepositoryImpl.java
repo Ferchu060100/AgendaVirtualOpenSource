@@ -19,7 +19,7 @@ public class ObservacionRepositoryImpl implements ObservacionRepository, Seriali
 
 private static final long serialVersionUID = 1L;
 	
-	@PersistenceContext(unitName="MySqlDS")
+	@PersistenceContext(unitName="AgendaVirtualMySqlDS")
 	private EntityManager em;
 	
 	@Override
