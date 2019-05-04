@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
-import javax.faces.bean.ViewScoped;
+import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -12,6 +12,7 @@ import pe.agendavirtual.entity.Apoderado;
 import pe.agendavirtual.repository.ApoderadoRepository;
 import pe.agendavirtual.repository.TipoDocumentoRepository;
 import pe.agendavirtual.web.util.Message;
+
 
 @Named
 @ViewScoped
