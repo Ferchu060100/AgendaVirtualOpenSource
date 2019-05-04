@@ -1,5 +1,6 @@
 package pe.agendavirtual.repository.impl;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -12,7 +13,7 @@ import javax.persistence.TypedQuery;
 import pe.agendavirtual.entity.Calificacion;
 import pe.agendavirtual.repository.CalificacionRepository;
 
-public class CalificacionRepositoryImpl implements CalificacionRepository{
+public class CalificacionRepositoryImpl implements CalificacionRepository,Serializable{
 	private static final long serialVersionUID = 1L;
 
 	@PersistenceContext(unitName="AgendaVirtualMySqlDS")
