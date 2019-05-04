@@ -1,5 +1,3 @@
-import java.io.Serializable;
-import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,10 +6,11 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import java.util.Date;
 
 @Entity
 @Table(name="observaciones")
-public class Observacion implements Serializable  {
+public class Observacion {
 	private static final long serialVersionUID = 1L;
  @Id	
  @GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -25,8 +24,6 @@ public class Observacion implements Serializable  {
 	private TipoObservacion observacion;
  @JoinColumn(name = "profesor_id")
 	private Profesor profesor;
- 
- 
 public int getId() {
 	return id;
 }
@@ -63,8 +60,8 @@ public Profesor getProfesor() {
 public void setProfesor(Profesor profesor) {
 	this.profesor = profesor;
 }
-public static long getSerialversionuid() {
-	return serialVersionUID;
-}
+
+ 
  
 }
+
