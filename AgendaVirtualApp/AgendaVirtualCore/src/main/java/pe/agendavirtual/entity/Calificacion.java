@@ -76,8 +76,5 @@ private static final long serialVersionUID = 1L;
 	public void setAlumno(Alumno alumno) {
 		this.alumno = alumno;
 	}
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-	
+
 }

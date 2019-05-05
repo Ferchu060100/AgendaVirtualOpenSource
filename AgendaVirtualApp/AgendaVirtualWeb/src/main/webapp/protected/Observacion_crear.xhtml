@@ -17,9 +17,9 @@
                 <div class = "form-group row">
                 <p:outputLabel for="alumno" value="Alumno" class="col-sm-2 col-form-label"></p:outputLabel>
                  <div class="col-sm-10">
-	                	<p:selectOneMenu id="alumno" style="width:160px" value="#{CalificacionController.alumno}" converter="omnifaces.SelectItemsConverter">
+	                	<p:selectOneMenu id="alumno" style="width:160px" value="#{observacionController.observacion.alumno}" converter="omnifaces.SelectItemsConverter">
 	                		<f:selectItem itemLabel="seleccionar" itemValue="" />
-							<f:selectItems value="#{asistenciaController.alumnos}" var="alumno" itemLabel="#{alumno.nombre}" itemValue="#{alumno}" />
+							<f:selectItems value="#{observacionController.alumnos}" var="alumno1" itemLabel="#{alumno1.nombre}" itemValue="#{alumno1}" />
 						</p:selectOneMenu>
 	                	<p:message for="alumno" display="text" />
 	                </div> 
@@ -28,9 +28,9 @@
    <div class = "form-group row">
                 <p:outputLabel for="profesor" value="Profesor" class="col-sm-2 col-form-label"></p:outputLabel>
                  <div class="col-sm-10">
-	                	<p:selectOneMenu id="profesor" style="width:160px" value="#{ObservacionController.profesor}" converter="omnifaces.SelectItemsConverter">
+	                	<p:selectOneMenu id="profesor" style="width:160px" value="#{observacionController.observacion.profesor}" converter="omnifaces.SelectItemsConverter">
 	                		<f:selectItem itemLabel="seleccionar" itemValue="" />
-							<f:selectItems value="#{ObservacionController.profesores}" var="profesor" itemLabel="#{profesor.nombre}" itemValue="#{profesor}" />
+							<f:selectItems value="#{observacionController.profesores}" var="profesor1" itemLabel="#{profesor1.nombre}" itemValue="#{profesor1}" />
 						</p:selectOneMenu>
 	                	<p:message for="profesor" display="text" />
 	                </div> 
@@ -39,9 +39,9 @@
    <div class = "form-group row">
                 <p:outputLabel for="tipoobservacion" value="TipoObservacion" class="col-sm-2 col-form-label"></p:outputLabel>
                  <div class="col-sm-10">
-	                	<p:selectOneMenu id="tipoobservacion" style="width:160px" value="#{ObservacionController.tipoobservacion}" converter="omnifaces.SelectItemsConverter">
+	                	<p:selectOneMenu id="tipoobservacion" style="width:160px" value="#{observacionController.observacion.tipo}" converter="omnifaces.SelectItemsConverter">
 	                		<f:selectItem itemLabel="seleccionar" itemValue="" />
-							<f:selectItems value="#{ObservacionController.tipos}" var="tipoobservacion" itemLabel="#{tipoobservacion.nombre}" itemValue="#{tipoobservacion}" />
+							<f:selectItems value="#{observacionController.tipos}" var="tipo1" itemLabel="#{tipo1.nombre}" itemValue="#{tipo1}" />
 						</p:selectOneMenu>
 	                	<p:message for="tipoobservacion" display="text" />
 	                </div> 
@@ -61,11 +61,17 @@
 <div class="form-group row">
 	                <p:outputLabel for="fecha" value="Fecha" class="col-sm-2 col-form-label"></p:outputLabel>
 	                <div class="col-sm-10">
-	                	<p:inputText id="fecha" class="form-control" value="#{ObservacionController.observacion.fecha}" required="true" placeholder="Ingresar fecha"></p:inputText>
+	                	<p:inputText id="fecha" class="form-control" value="#{observacionController.observacion.fecha}" required="true" placeholder="Ingresar fecha"></p:inputText>
 	                	<p:message for="fecha" display="text" />
 	                </div>
-				</div>	
-
+				</div>
+					
+	<div class="form-group row">
+					<p:outputLabel class="col-sm-2 col-form-label"></p:outputLabel>
+	                <div class="col-sm-10">
+	                  <p:commandButton update="mensajeRespuesta" class="btn btn-primary" value="Guardar" action="#{calificacionController.guardar()}"></p:commandButton>
+	                </div>
+	            </div>
 
 </h:form>
 </div>

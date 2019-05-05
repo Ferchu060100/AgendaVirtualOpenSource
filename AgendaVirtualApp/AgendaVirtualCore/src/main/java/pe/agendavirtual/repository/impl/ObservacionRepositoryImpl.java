@@ -78,7 +78,7 @@ private static final long serialVersionUID = 1L;
 		
 		List<Observacion> observaciones = new ArrayList<Observacion>();
 		try {
-			TypedQuery<Observacion> query = em.createQuery ("select a from observaciones a", Observacion.class);
+			TypedQuery<Observacion> query = em.createQuery ("select a from Observacion a", Observacion.class);
 			observaciones = query.getResultList();
 			
 		} catch (Exception e) {
