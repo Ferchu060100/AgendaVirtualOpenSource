@@ -11,9 +11,8 @@
     <ui:define name="primaryTitle">Listado de calificaciones</ui:define>
     <ui:define name="content">
     <h:form id = "frm">
-    	<p:messages id="mensajeRespuesta" showDetail="true" closable="true">
-			        <p:autoUpdate />
-				</p:messages>
+    	<p:messages id="mensajeRespuesta" showDetail="true" closable="true"><p:autoUpdate /></p:messages>
+    	<div class ="container">
     <p:dataTable value="#{calificacionController.calificaciones}" var="calificacion" id="listadocalificaciones"
 							emptyMessage="No existen registros" paginator="true" rows="5" 
 							selectionMode="single" rowKey="#{calificacion.id}" editable="true">
@@ -39,20 +38,110 @@
 						<p:outputLabel value="#{calificacion.fecha}"></p:outputLabel>
 					</p:column>
 					
-	     	<!--  <p:column style="width:100px;">
+	     	       <p:column style="width:100px;">
 				       	 <p:commandButton update=":frmDialog:calificacionDialog" oncomplete="PF('calificacionDetalle').show()" value="editar">
 			                 <f:setPropertyActionListener value="#{calificacion}" target="#{calificacionController.calificacionSeleccionada}" />
 			             </p:commandButton>
-			        </p:column> -->
+			        </p:column> 
 			        
 			<p:column style="width:50px;">
 			           <h:commandLink  action="#{calificacionController.eliminar(calificacion.id)}">
 			           	<i data-feather="x-circle"></i>
 			           </h:commandLink>
-			       	</p:column>	        
+			       	</p:column>	   
+        </p:dataTable>  
+	    </div> 
+        </h:form>     
 
-	</p:dataTable>   
-    </h:form>
+<h:form id="frmDialog">
+			<p:dialog header="Detalle Calificacion" id="calificacionDialog"  width="50%" widgetVar="calificacionDetalle" resizable="false" showEffect="explode" hideEffect="explode">
+			<p:outputPanel rendered="#{not empty calificacionController.calificacionSeleccionada}">
+				<div class="container">
+					<div class="form-group row">
+		                <p:outputLabel for="alumno" value="Alumno" class="col-sm-2 col-form-label"></p:outputLabel>
+		                <div class="col-sm-10">
+		                	<p:selectOneMenu id="alumno" style="width:160px" value="#{calificacionController.calificacionSeleccionada.alumno}" converter="omnifaces.SelectItemsConverter">
+		                		<f:selectItem itemLabel="seleccionar" itemValue="" />
+								<f:selectItems value="#{calificacionController.alumnos}" var="alumno1" itemLabel="#{alumno1.nombre}" itemValue="#{alumno1}" />
+							</p:selectOneMenu>
+		                	<p:message for="alumno" display="text" />
+		                </div>
+					</div>
+					<div class="form-group row">
+		                <p:outputLabel for="curso" value="Curso" class="col-sm-2 col-form-label"></p:outputLabel>
+		                <div class="col-sm-10">
+		                	<p:selectOneMenu id="curso" value="#{calificacionController.calificacionSeleccionada.curso}" style="width:160px" converter="omnifaces.SelectItemsConverter">
+		                		<f:selectItem itemLabel="seleccionar" itemValue="" />
+								<f:selectItems value="#{calificacionController.cursos}" converter="themeConverter" var="curso1" itemLabel="#{curso1.nombre}" itemValue="#{curso}" />
+							</p:selectOneMenu>
+		                	<p:message for="curso" display="text" />
+		                </div>
+					</div>
+					
+						<div class="form-group row">
+		                <p:outputLabel for="profesor" value="Profesor" class="col-sm-2 col-form-label"></p:outputLabel>
+		                <div class="col-sm-10">
+		                	<p:selectOneMenu id="profesor" value="#{calificacionController.calificacionSeleccionada.profesor}" style="width:160px" converter="omnifaces.SelectItemsConverter">
+		                		<f:selectItem itemLabel="seleccionar" itemValue="" />
+								<f:selectItems value="#{calificacionController.profesores}" converter="themeConverter" var="profesor1" itemLabel="#{profesor1.nombre}" itemValue="#{profesor1}" />
+							</p:selectOneMenu>
+		                	<p:message for="profesor" display="text" />
+		                </div>
+					</div>
+					
+						<div class="form-group row">
+		                <p:outputLabel for="evaluacion" value="Evaluacion" class="col-sm-2 col-form-label"></p:outputLabel>
+		                <div class="col-sm-10">
+		                	<p:selectOneMenu id="evaluacion" value="#{calificacionController.calificacionSeleccionada.evaluacion}" style="width:160px" converter="omnifaces.SelectItemsConverter">
+		                		<f:selectItem itemLabel="seleccionar" itemValue="" />
+								<f:selectItems value="#{calificacionController.evaluaciones}" converter="themeConverter" var="evaluacion1" itemLabel="#{evaluacion1.nombre}" itemValue="#{evaluacion1}" />
+							</p:selectOneMenu>
+		                	<p:message for="evaluacion" display="text" />
+		                </div>
+					</div>
+					
+					
+					<div class="form-group row">
+		                <p:outputLabel for="nota" value="Nota" class="col-sm-2 col-form-label"></p:outputLabel>
+		                <div class="col-sm-10">
+		                	<p:inputText id="nota" class="form-control" value="#{calificacionController.calificacionSeleccionada.nota}" required="true" placeholder="Ingresar Nota"></p:inputText>
+		                	<p:message for="nota" display="text" />
+		                </div>
+					</div>			
+				
+				
+					<div class="form-group row">
+		                <p:outputLabel for="fecha" value="Fecha" class="col-sm-2 col-form-label"></p:outputLabel>
+		                <div class="col-sm-10">
+		                	<p:inputText id="fecha" class="form-control" value="#{calificacionController.calificacionSeleccionada.fecha}" required="true" placeholder="Ingresar fecha"></p:inputText>
+		                	<p:message for="fecha" display="text" />
+		                </div>
+					</div>
+					
+
+					<div class="form-group row">
+						<p:outputLabel class="col-sm-2 col-form-label"></p:outputLabel>
+		                <div class="col-sm-10">
+		                  	<p:commandButton value="Aceptar" actionListener="#{calificacionController.actualizar()}"
+                                         update=":frm:listadocalificaciones :frm:mensajeRespuesta" oncomplete="PF('calificacionDetalle').hide();"/>
+							<p:commandButton value="Cancelar" onclick="PF('calificacionDetalle').hide();"/>
+		                </div>
+		            </div>
+          		</div>
+          	</p:outputPanel>
+			</p:dialog>
+			</h:form>
+
+
+
+
+    
+    
+    
+    
+    
+    
+    
     </ui:define>
     </ui:composition>
 </body> 
